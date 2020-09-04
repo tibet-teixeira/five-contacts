@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Five Contacts</string>
+    <string name="welcome">Bem Vindo!</string>
+    <string name="new_user">Novo Usuário</string>
+    <string name="update_user_profile">Atualizar Perfil</string>
+    <string name="pick_contacts">Selecione os Contatos</string>
+    <string name="login">Login</string>
+    <string name="name">Nome</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="keep_connected">Manter conectado? </string>
+    <string name="log_in">Entrar</string>
+    <string name="register">Cadastrar</string>
+    <string name="save">Salvar</string>
+    <string name="forgot_password">Esqueci minha senha</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
