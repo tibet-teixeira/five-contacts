@@ -4,23 +4,64 @@ import java.io.Serializable;
 import java.lang.reflect.Array;
 
 public class User implements Serializable {
-    String nome;
-    String login;
-    String senha;
-    String email;
+    private String name;
+    private String login;
+    private String password;
+    private String email;
 
-
-    public User(String nome, String login, String password) {
-        this.nome = nome;
+    /**
+     *
+     * @param name
+     * @param login
+     * @param password
+     */
+    public User(String name, String login, String password) {
+        this(name, login, password, "");
     }
 
-    public String getNome() {
-        return nome;
+    /**
+     *
+     * @param name
+     * @param login
+     * @param password
+     * @param email
+     */
+    public User(String name, String login, String password, String email) {
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.email = email;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

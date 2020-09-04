@@ -8,11 +8,14 @@
     <string name="name">Nome</string>
     <string name="email">E-mail</string>
     <string name="password">Senha</string>
-    <string name="keep_connected">Manter conectado? </string>
+    <string name="keep_connected">Lembrar minha conta</string>
     <string name="log_in">Entrar</string>
     <string name="register">Cadastrar</string>
     <string name="save">Salvar</string>
     <string name="forgot_password">Esqueci minha senha</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="change_contact_list">Mudar Lista de Contatos</string>
+    <string name="call">Ligar</string>
+    <string name="cancel">Cancelar</string>
 </resources>

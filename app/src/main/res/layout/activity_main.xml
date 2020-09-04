@@ -5,79 +5,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_vertical_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.15" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_vertical_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.85" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_horizontal_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.10" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_horizontal_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_horizontal_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
+        app:layout_constraintGuide_percent="0.47" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_horizontal_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.57" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_horizontal_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.67" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_horizontal_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.79" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_horizontal_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.90" />
+        app:layout_constraintGuide_percent="0.91" />
 
     <TextView
-        android:id="@+id/message"
+        android:id="@+id/titleScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/welcome"
         android:textAlignment="center"
-        android:textColor="#FF5722"
-        android:textColorLink="#FFFFFF"
+        android:textColor="@color/colorPrimary"
+        android:textColorLink="@color/colorSecondary"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.5"
@@ -91,38 +91,40 @@
         android:layout_height="0dp"
         app:layout_constraintWidth_percent="0.70"
         app:layout_constraintHeight_percent="0.10"
-        android:background="#FFFFFF"
+        android:background="@color/colorSecondary"
         android:inputType="textPersonName"
         android:text="@string/login"
         android:textAlignment="textStart"
-        android:textColor="#FF5722"
-        android:textColorLink="#FFFFFF"
+        android:textColor="@color/colorPrimary"
+        android:textColorLink="@color/colorSecondary"
         android:textSize="24sp"
+        android:padding="10dp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guide_horizontal_3" />
 
     <EditText
-        android:id="@+id/senha"
+        android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintWidth_percent="0.70"
         app:layout_constraintHeight_percent="0.10"
-        android:background="#FFFFFF"
+        android:background="@color/colorSecondary"
         android:inputType="textPersonName"
         android:text="@string/password"
         android:textAlignment="textStart"
-        android:textColor="#FF5722"
-        android:textColorLink="#FFFFFF"
+        android:textColor="@color/colorPrimary"
+        android:textColorLink="@color/colorSecondary"
         android:textSize="24sp"
+        android:padding="10dp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guide_horizontal_4" />
 
     <Switch
-        android:id="@+id/manterConectado"
+        android:id="@+id/keepConnected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/keep_connected"
@@ -130,19 +132,18 @@
         android:textOff="@string/no"
         android:textOn="@string/yes"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="guide_vertical_1"
         app:layout_constraintEnd_toEndOf="@+id/guide_vertical_2"
         app:layout_constraintTop_toBottomOf="@+id/guide_horizontal_5" />
 
     <Button
-        android:id="@+id/logar"
+        android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintWidth_percent="0.70"
         app:layout_constraintHeight_percent="0.10"
-        android:background="#FF5722"
+        android:background="@color/colorPrimary"
         android:text="@string/log_in"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorSecondary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,14 +152,14 @@
         app:layout_constraintTop_toBottomOf="@+id/guide_horizontal_6" />
 
     <Button
-        android:id="@+id/novo"
+        android:id="@+id/registerButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintWidth_percent="0.70"
         app:layout_constraintHeight_percent="0.10"
-        android:background="#FFFFFF"
         android:text="@string/register"
-        android:textColor="#FF5722"
+        android:background="@color/colorSecondary"
+        android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -167,16 +168,15 @@
         app:layout_constraintTop_toBottomOf="@+id/guide_horizontal_7" />
 
     <TextView
-        android:id="@+id/esqueciSenha"
+        android:id="@+id/forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/forgot_password"
         android:autoLink="all"
         android:linksClickable="false"
         android:selectAllOnFocus="false"
-        android:textColor="#FF5722"
-        android:textColorLink="#FF5700"
-        app:layout_constraintStart_toStartOf="guide_vertical_1"
+        android:textColor="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/guide_vertical_2"
         app:layout_constraintTop_toBottomOf="@+id/guide_horizontal_8" />
 
