@@ -43,7 +43,6 @@ public class CallContact extends AppCompatActivity implements BottomNavigationVi
     List<Contact> contactsInfoList;
     List<Contact> selectedContacts;
     User user;
-    boolean permissionCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +111,7 @@ public class CallContact extends AppCompatActivity implements BottomNavigationVi
                 intent = new Intent(CallContact.this, PickContact.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
+                finish();
                 break;
 
             case R.id.updateUserProfile:

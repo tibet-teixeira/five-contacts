@@ -94,6 +94,7 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
                 Intent intent = new Intent(PickContact.this, CallContact.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -141,6 +142,7 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
                 intent = new Intent(PickContact.this, CallContact.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
+                finish();
                 break;
 
             case R.id.pickContact:
