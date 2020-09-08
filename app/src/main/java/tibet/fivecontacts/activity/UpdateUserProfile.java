@@ -7,12 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import java.util.Set;
 
 import tibet.fivecontacts.R;
 import tibet.fivecontacts.model.User;
@@ -26,12 +25,20 @@ public class UpdateUserProfile extends AppCompatActivity {
     Switch keepConnected;
     Button updateUserProfile;
     Button cancelUpdateUserProfile;
-
+    Set<String> saveContacts;
+    User user;
+    Intent thisIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_user_profile);
+
+        thisIntent = this.getIntent();
+        Bundle params = thisIntent.getExtras();
+        if (params != null) {
+            user = (User) params.getSerializable("user");
+        }
 
         nameRegister = (EditText) findViewById(R.id.nameRegister);
         emailRegister = (EditText) findViewById(R.id.emailRegister);
@@ -61,14 +68,22 @@ public class UpdateUserProfile extends AppCompatActivity {
                 editor.putString("login", loginString);
                 editor.putString("password", passwordString);
                 editor.putBoolean("keepConnected", keepConnectedValue);
+                editor.putStringSet("phoneNumber", saveContacts);
 
                 editor.commit();
 
-                User user = new User(nameString, loginString, passwordString, emailString);
+                user.setName(nameString);
+                user.setLogin(loginString);
+                user.setPassword(passwordString);
+                user.setEmail(emailString);
+                user.setKeepConnected(keepConnectedValue);
+                user.setSaveContacts(saveContacts);
 
-                Intent intent = new Intent(UpdateUserProfile.this, ContactList.class);
+                Intent intent = new Intent(UpdateUserProfile.this, CallContact.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
+
+                finish();
 
             }
         });
@@ -82,20 +97,12 @@ public class UpdateUserProfile extends AppCompatActivity {
     }
 
     private void loadingUserData() {
-        SharedPreferences userSaved = getSharedPreferences("user",
-                Activity.MODE_PRIVATE);
-
-        String nameSaved = userSaved.getString("name", "");
-        String emailSaved = userSaved.getString("email", "");
-        String loginSaved = userSaved.getString("login", "");
-        String passwordSaved = userSaved.getString("password", "");
-        boolean keepConnectedSaved = userSaved.getBoolean("keepConnected", false);
-
-        nameRegister.setText(nameSaved);
-        emailRegister.setText(emailSaved);
-        loginRegister.setText(loginSaved);
-        passwordRegister.setText(passwordSaved);
-        keepConnected.setChecked(keepConnectedSaved);
+        nameRegister.setText(user.getName());
+        emailRegister.setText(user.getEmail());
+        loginRegister.setText(user.getLogin());
+        passwordRegister.setText(user.getPassword());
+        keepConnected.setChecked(user.isKeepConnected());
+        saveContacts = user.getSaveContacts();
     }
 
 }

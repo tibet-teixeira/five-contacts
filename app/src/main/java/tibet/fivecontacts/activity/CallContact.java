@@ -1,12 +1,12 @@
 package tibet.fivecontacts.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.MenuItem;
@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,29 +27,28 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import tibet.fivecontacts.R;
 import tibet.fivecontacts.model.Contact;
 import tibet.fivecontacts.model.User;
 
-public class PickContact extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class CallContact extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     public static final int PERMISSIONS_REQUEST_READ_CONTACTS = 1;
-    ListView contactList;
+    public static final int PERMISSIONS_REQUEST_CALL_CONTACT = 2;
+    ListView contactCallList;
     BottomNavigationView bot_nav_view;
     ContactAdapter dataAdapter = null;
     List<Contact> contactsInfoList;
     List<Contact> selectedContacts;
-    Button save;
     User user;
+    boolean permissionCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pick_contacts);
+        setContentView(R.layout.activity_call_contact);
 
         Intent intent = this.getIntent();
         Bundle params = intent.getExtras();
@@ -58,62 +56,46 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
             user = (User) params.getSerializable("user");
         }
 
-        contactList = (ListView) findViewById(R.id.contactList);
-        save = (Button) findViewById(R.id.save);
+        contactCallList = (ListView) findViewById(R.id.contactCallList);
+
         bot_nav_view = (BottomNavigationView) findViewById(R.id.bot_nav_view);
         bot_nav_view.setOnNavigationItemSelectedListener(this);
 
         requestContactPermission();
-        contactList.setAdapter(dataAdapter);
+        requestCallPermission();
+        contactCallList.setAdapter(dataAdapter);
 
-        save.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                Set<String> saveContact = new HashSet<>();
-                for (Contact contact : selectedContacts) {
-                    saveContact.add(contact.getPhoneNumber());
-                }
-
-                user.setSaveContacts(saveContact);
-
-                SharedPreferences userSaved = getSharedPreferences("user",
-                        Activity.MODE_PRIVATE);
-                SharedPreferences.Editor editor = userSaved.edit();
-
-                editor.putString("name", user.getName());
-                editor.putString("email", user.getEmail());
-                editor.putString("login", user.getLogin());
-                editor.putString("password", user.getPassword());
-                editor.putBoolean("keepConnected", user.isKeepConnected());
-                editor.putStringSet("phoneNumber", user.getSaveContacts());
-
-                editor.commit();
-
-                Intent intent = new Intent(PickContact.this, CallContact.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
-            }
-        });
-
-        // TODO: Diferenciar itens selecionados dos nao selecionados
-        contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        contactCallList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (!contactsInfoList.get(position).isSelected()) {
-                    if (selectedContacts.size() < 5) {
-                        selectedContacts.add(contactsInfoList.get(position));
-                        contactsInfoList.get(position).setSelected(true);
-                    } else {
-                        Toast.makeText(PickContact.this, R.string.max_number_contacts_selected,
-                                Toast.LENGTH_LONG).show();
-                    }
-                } else {
-                    selectedContacts.remove(contactsInfoList.get(position));
-                    contactsInfoList.get(position).setSelected(false);
-                }
+            public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setTitle(R.string.select).
+                        setItems(R.array.call_options, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                switch (which) {
+                                    case 0:
+                                        Intent call = new Intent(Intent.ACTION_CALL);
+                                        call.setData(Uri.parse("tel: " + selectedContacts.get(position).getPhoneNumber()));
+
+                                        if (ActivityCompat.checkSelfPermission(CallContact.this,
+                                                Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                                            startActivity(call);
+                                        } else {
+                                            requestCallPermission();
+                                        }
+                                        break;
+
+                                    case 1:
+                                        Intent dial = new Intent(Intent.ACTION_DIAL);
+                                        dial.setData(Uri.parse("tel: " + selectedContacts.get(position).getPhoneNumber()));
+                                        startActivity(dial);
+                                        break;
+                                }
+                            }
+                        });
+                builder.show();
+
             }
         });
 
@@ -124,16 +106,16 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
         Intent intent;
         switch (item.getItemId()) {
             case R.id.contactList:
-                intent = new Intent(PickContact.this, CallContact.class);
+                break;
+
+            case R.id.pickContact:
+                intent = new Intent(CallContact.this, PickContact.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 break;
 
-            case R.id.pickContact:
-                break;
-
             case R.id.updateUserProfile:
-                intent = new Intent(PickContact.this, UpdateUserProfile.class);
+                intent = new Intent(CallContact.this, UpdateUserProfile.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 break;
@@ -168,6 +150,35 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
             }
         } else {
             getContacts();
+            verifySavedContacts();
+        }
+    }
+
+    public void requestCallPermission() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    android.Manifest.permission.CALL_PHONE)) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(R.string.necessary_access_phone);
+                builder.setPositiveButton(android.R.string.ok, null);
+                builder.setMessage(R.string.allow_access_phone);
+                builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        requestPermissions(new String[]{android.Manifest.permission.CALL_PHONE},
+                                PERMISSIONS_REQUEST_CALL_CONTACT);
+                    }
+                });
+
+                builder.show();
+
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.CALL_PHONE},
+                        PERMISSIONS_REQUEST_CALL_CONTACT);
+            }
         }
     }
 
@@ -176,6 +187,7 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
         if (requestCode == PERMISSIONS_REQUEST_READ_CONTACTS) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getContacts();
+                verifySavedContacts();
             } else {
                 Toast.makeText(this, R.string.disable_access_contact, Toast.LENGTH_LONG).show();
             }
@@ -229,7 +241,7 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
             cursor.close();
             verifySavedContacts();
             dataAdapter = new ContactAdapter();
-            contactList.setAdapter(dataAdapter);
+            contactCallList.setAdapter(dataAdapter);
         }
     }
 
@@ -250,12 +262,12 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
 
         @Override
         public int getCount() {
-            return contactsInfoList.size();
+            return selectedContacts.size();
         }
 
         @Override
         public Contact getItem(int i) {
-            return contactsInfoList.get(i);
+            return selectedContacts.get(i);
         }
 
         @Override
@@ -271,7 +283,7 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
             TextView contactName = (TextView) view.findViewById(R.id.contactName);
             TextView contactPhoneNumber = (TextView) view.findViewById(R.id.contactPhoneNumber);
 
-            Contact contactsInfo = (Contact) contactsInfoList.get(position);
+            Contact contactsInfo = (Contact) selectedContacts.get(position);
 
             contactName.setText(contactsInfo.getDisplayName());
             contactPhoneNumber.setText(contactsInfo.getPhoneNumber());

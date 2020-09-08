@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="call_options">
+        <item>Ligar</item>
+        <item>Abrir no Telefone</item>
+    </array>
+</resources>

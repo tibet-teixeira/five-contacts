@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.HashSet;
+
 import tibet.fivecontacts.R;
 import tibet.fivecontacts.model.User;
 
@@ -104,6 +106,7 @@ public class NewUser extends AppCompatActivity {
                     String loginString = loginRegister.getText().toString();
                     String passwordString = passwordRegister.getText().toString();
 
+                    // TODO: salvar mais de um usuario no SharedPreferences
                     if (!(firstAccessName || firstAccessEmail || firstAccessLogin || firstAccessPassword)) {
                         if (!((nameString.trim().equals(""))
                                 || (emailString.trim().equals(""))
@@ -118,25 +121,26 @@ public class NewUser extends AppCompatActivity {
                             editor.putString("login", loginString);
                             editor.putString("password", passwordString);
                             editor.putBoolean("keepConnected", false);
+                            editor.putStringSet("phoneNumber", new HashSet<String>());
 
                             editor.commit();
 
-                            Toast.makeText(NewUser.this, "Usuário cadastrado com sucesso",
+                            Toast.makeText(NewUser.this, R.string.user_successfully_registered,
                                     Toast.LENGTH_LONG).show();
 //
                             finish();
 
                         } else {
-                            Toast.makeText(NewUser.this, "Existe algum campo vazio",
+                            Toast.makeText(NewUser.this, R.string.empty_field,
                                     Toast.LENGTH_LONG).show();
                         }
 
                     } else {
-                        Toast.makeText(NewUser.this, "Existe algum campo vazio",
+                        Toast.makeText(NewUser.this, R.string.empty_field,
                                 Toast.LENGTH_LONG).show();
                     }
                 } else {
-                    Toast.makeText(NewUser.this, "Existe algum campo nulo",
+                    Toast.makeText(NewUser.this, R.string.null_field,
                             Toast.LENGTH_LONG).show();
                 }
             }

@@ -15,6 +15,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import tibet.fivecontacts.R;
 import tibet.fivecontacts.model.User;
 
@@ -90,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         String emailSaved = userSaved.getString("email", "");
                         String loginSaved = userSaved.getString("login", "");
                         String passwordSaved = userSaved.getString("password", "");
+                        Set<String> contactsSaved = userSaved.getStringSet("phoneNumber", new HashSet<String>());
 
                         if ((loginSaved != null) && (passwordSaved != null)) {
 
@@ -102,23 +106,24 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString("login", loginSaved);
                                 editor.putString("password", passwordSaved);
                                 editor.putBoolean("keepConnected", switchValue);
+                                editor.putStringSet("phoneNumber", contactsSaved);
 
                                 editor.commit();
 
-                                User user = new User(nameSaved, loginSaved, passwordSaved, emailSaved);
+                                User user = new User(nameSaved, loginSaved, passwordSaved, emailSaved, switchValue, contactsSaved);
 
                                 Intent intent = new Intent(MainActivity.this,
-                                        ContactList.class);
+                                        CallContact.class);
                                 intent.putExtra("user", user);
                                 startActivity(intent);
 
                             } else {
-                                Toast.makeText(MainActivity.this, "Login/Senha Incorreto(s)",
+                                Toast.makeText(MainActivity.this, R.string.login_or_password_incorrect,
                                         Toast.LENGTH_LONG).show();
                             }
 
                         } else {
-                            Toast.makeText(MainActivity.this, "Login/Senha nulo(s)",
+                            Toast.makeText(MainActivity.this, R.string.login_or_password_null,
                                     Toast.LENGTH_LONG).show();
                         }
                     }
@@ -148,11 +153,12 @@ public class MainActivity extends AppCompatActivity {
             String emailSaved = userSaved.getString("email", "");
             String loginSaved = userSaved.getString("login", "");
             String passwordSaved = userSaved.getString("password", "");
+            Set<String> contactsSaved = userSaved.getStringSet("phoneNumber", new HashSet<String>());
 
-            User user = new User(nameSaved, loginSaved, passwordSaved, emailSaved);
+            User user = new User(nameSaved, loginSaved, passwordSaved, emailSaved, keepConnectedSaved, contactsSaved);
 
             Intent intent = new Intent(MainActivity.this,
-                    ContactList.class);
+                    CallContact.class);
             intent.putExtra("user", user);
             startActivity(intent);
         }
