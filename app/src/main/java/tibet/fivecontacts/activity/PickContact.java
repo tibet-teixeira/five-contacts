@@ -97,7 +97,8 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
             }
         });
 
-        // TODO: Diferenciar itens selecionados dos nao selecionados
+
+
         contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -106,6 +107,13 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
                     if (selectedContacts.size() < 5) {
                         selectedContacts.add(contactsInfoList.get(position));
                         contactsInfoList.get(position).setSelected(true);
+
+                        TextView contactName = (TextView) view.findViewById(R.id.contactName);
+                        TextView contactPhoneNumber = (TextView) view.findViewById(R.id.contactPhoneNumber);
+
+                        contactName.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.colorPrimaryLight));
+                        contactPhoneNumber.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.colorPrimaryLight));
+
                     } else {
                         Toast.makeText(PickContact.this, R.string.max_number_contacts_selected,
                                 Toast.LENGTH_LONG).show();
@@ -113,6 +121,12 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
                 } else {
                     selectedContacts.remove(contactsInfoList.get(position));
                     contactsInfoList.get(position).setSelected(false);
+
+                    TextView contactName = (TextView) view.findViewById(R.id.contactName);
+                    TextView contactPhoneNumber = (TextView) view.findViewById(R.id.contactPhoneNumber);
+
+                    contactName.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.colorSecondary));
+                    contactPhoneNumber.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.colorSecondary));
                 }
             }
         });
@@ -275,6 +289,11 @@ public class PickContact extends AppCompatActivity implements BottomNavigationVi
 
             contactName.setText(contactsInfo.getDisplayName());
             contactPhoneNumber.setText(contactsInfo.getPhoneNumber());
+
+            if (contactsInfo.isSelected()) {
+                contactName.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.colorPrimaryLight));
+                contactPhoneNumber.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.colorPrimaryLight));
+            }
 
             return view;
         }

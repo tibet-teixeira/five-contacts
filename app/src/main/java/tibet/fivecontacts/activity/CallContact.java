@@ -70,7 +70,7 @@ public class CallContact extends AppCompatActivity implements BottomNavigationVi
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setTitle(R.string.select).
+                builder.setTitle(selectedContacts.get(position).getDisplayName()).
                         setItems(R.array.call_options, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 switch (which) {
