@@ -12,18 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5aa9a6ad-fbef-40e1-b520-a10c5e5a745b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/CallContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/ContactList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/NewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/NewUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/PickContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/PickContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/UpdateUserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/UpdateUserProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_contact_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_call_contact.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_pick_contacts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_pick_contacts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,52 +32,48 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/NewUser.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="448">
-                  <caret line="142" column="68" selection-start-line="142" selection-start-column="68" selection-end-line="142" selection-end-column="68" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#4758#4795#0" expanded="true" />
-                    <element signature="e#4992#5012#0" expanded="true" />
-                    <element signature="e#5186#5206#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/CallContact.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="161" column="19" selection-start-line="161" selection-start-column="19" selection-end-line="161" selection-end-column="19" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="520">
-                  <caret line="32" column="28" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="28" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/CallContact.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="161" column="19" selection-start-line="161" selection-start-column="19" selection-end-line="161" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="80" lean-forward="true" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -134,7 +119,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/res/drawable/user.xml" />
         <option value="$PROJECT_DIR$/src/main/res/menu/bottom_navigation_menu.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_new_user.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
@@ -157,6 +141,7 @@
         <option value="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/PickContact.java" />
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/NewUser.java" />
+        <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
       </list>
     </option>
   </component>
@@ -398,11 +383,11 @@
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Resources Explorer" order="6" />
-      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.12686567" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.12686567" />
       <window_info id="Captures" order="8" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Find" />
       <window_info anchor="bottom" id="Logcat" order="0" weight="0.32987553" />
-      <window_info active="true" anchor="bottom" id="TODO" order="1" visible="true" weight="0.32987553" />
+      <window_info anchor="bottom" id="TODO" order="1" weight="0.32987553" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.32987553" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.32987553" />
       <window_info anchor="bottom" id="Version Control" order="4" />
@@ -470,21 +455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="56" column="53" lean-forward="true" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -644,23 +614,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tibet/fivecontacts/activity/NewUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
+        <state relative-caret-position="1315">
           <caret line="142" column="68" selection-start-line="142" selection-start-column="68" selection-end-line="142" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4758#4795#0" expanded="true" />
             <element signature="e#4992#5012#0" expanded="true" />
             <element signature="e#5186#5206#0" expanded="true" />
+            <element signature="e#5363#5382#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="80" lean-forward="true" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
